@@ -1,0 +1,37 @@
+<h2>User info</h2>
+<div>
+  <%= image_tag current_user.get_profile_image(100,100) %>
+</div>
+<table>
+  <tr>
+    <th>name</th>
+    <th><%= current_user.name %></th>
+  </tr>
+  <tr>
+    <th>introduction</th>
+    <th><%= current_user.introduction %></th>
+  </tr>
+</table>
+
+<div>
+  <%= link_to edit_user_path(current_user) do %>
+    <i class="fas fa-user-cog"></i>
+  <% end %>
+</div>
+
+<h2>New book</h2>
+<%= form_with model: book, url: books_path, method: :post do |f| %>
+  <div class = "field">
+    <%= f.label :Title %><br />
+    <%= f.text_field :title %>
+  </div>
+
+  <div class = "field">
+    <%= f.label :Opinion %><br />
+    <%= f.text_field :body %>
+  </div>
+
+  <div class = "actions">
+    <%= f.submit ' Create Book ' %>
+  </div>
+<% end %>

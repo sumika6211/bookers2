@@ -1,2 +1,36 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<%= render 'list', book: @book ,user: @user %>
+
+<h2>Book detail</h2>
+<table>
+  <tbody>
+    <tr>
+      <% if current_user == @book.user %>
+        <td>
+          <%= link_to user_path(current_user) do %>
+            <%= image_tag current_user.get_profile_image(80,80) %><br>
+            <%= current_user.name %>
+          <% end %>
+        </td>
+        <td>
+          <%= @book.title %>
+        </td>
+        <td>
+          <%= @book.body %>
+        </td>
+      <% else %>
+        <td>
+          <%= link_to user_path(@book.user) do %>
+            <%= image_tag @book.user.get_profile_image(80,80) %><br>
+            <%= @book.user.name %>
+          <% end %>
+        </td>
+        <td>
+          <%= @book.title %>
+        </td>
+        <td>
+          <%= @book.body %>
+        </td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>

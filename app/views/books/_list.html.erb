@@ -3,7 +3,7 @@
   <div>
     <%= image_tag current_user.get_profile_image(100,100) %>
   </div>
-  <table>
+  <table class = "table mt-3">
     <tr>
       <th>name</th>
       <th><%= current_user.name %></th>
@@ -17,7 +17,7 @@
   <div>
     <%= image_tag user.get_profile_image(100,100) %>
   </div>
-  <table>
+  <table class = "table mt-3">
     <tr>
       <th>name</th>
       <th><%= user.name %></th>
@@ -29,25 +29,43 @@
   </table>
 <% end %>
 
-<div>
-  <%= link_to edit_user_path(current_user) do %>
-    <i class="fas fa-user-cog"></i>
-  <% end %>
-</div>
 
-<h2>New book</h2>
+<% if controller.action_name != 'show' %>
+  <div>
+    <%= link_to edit_user_path(current_user), class: "btn btn-outline-secondary btn-block" do %>
+      <i class="fas fa-user-cog"></i>
+    <% end %>
+  </div>
+<% else %>
+  <% if current_user == user %>
+    <div>
+      <%= link_to edit_user_path(current_user), class: "btn btn-outline-secondary btn-block" do %>
+        <i class="fas fa-user-cog"></i>
+      <% end %>
+    </div>
+  <% else %>
+    <div>
+      <%= link_to user_path(current_user), class: "btn btn-outline-secondary btn-block" do %>
+        <i class="fas fa-user-cog"></i>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
+
+
+<h2 class = "mt-3">New book</h2>
 <%= form_with model: book, url: books_path, method: :post do |f| %>
-  <div class = "field">
+  <div class = "field mb-3 mt-4">
     <%= f.label :Title %><br />
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: "form-control" %>
   </div>
 
-  <div class = "field">
+  <div class = "field mb-3 mt-4">
     <%= f.label :Opinion %><br />
-    <%= f.text_field :body %>
+    <%= f.text_field :body, class: "form-control", rows: "5"%>
   </div>
 
   <div class = "actions">
-    <%= f.submit ' Create Book ' %>
+    <%= f.submit ' Create Book ', class: "btn btn-success" %>
   </div>
 <% end %>

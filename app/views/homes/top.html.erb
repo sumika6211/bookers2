@@ -1,18 +1,24 @@
-<h1>Welcome to
-  <strong><i class="fa-solid fa-book"></i>Bookers !!</strong>
-</h1>
-<p>In <strong><i class="fa-solid fa-book"></i>Bookers,</strong></p>
-<p>you can share and exchange your opinions , inpressions , and emotions</p>
-<p>about various books!</p>
+<div class = "container" >
+  <div class = "row" >
+    <div class = "mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+      <h1>
+        Welcome to<strong><i class="fa-solid fa-book"></i>Bookers !!</strong>
+      </h1>
+      <p>In <strong><i class="fa-solid fa-book"></i>Bookers,</strong></p>
+      <p>you can share and exchange your opinions , inpressions , and emotions</p>
+      <p>about various books!</p>
 
-<div>
-  <%= link_to new_user_session_path do %>
-    Log in
-  <% end %>
-</div>
+      <div>
+        <%= link_to new_user_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in" do %>
+          Log in
+        <% end %>
+      </div>
 
-<div>
-  <%= link_to new_user_registration_path do %>
-    Sign up
-  <% end %>
+      <div>
+        <%= link_to new_user_registration_path, class: "btn btn-success btn-sm btn-block sign_up" do %>
+          Sign up
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

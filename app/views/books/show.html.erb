@@ -12,10 +12,16 @@
           <% end %>
         </td>
         <td>
-          <%= @book.title %>
+          <%= link_to "#{@book.title}", book_path(@book.id) %>
         </td>
         <td>
           <%= @book.body %>
+        </td>
+        <td>
+          <%= link_to 'Edit', edit_book_path(@book.id) %>
+        </td>
+        <td>
+          <%= link_to 'Destroy', book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか？" %>
         </td>
       <% else %>
         <td>
@@ -25,7 +31,7 @@
           <% end %>
         </td>
         <td>
-          <%= @book.title %>
+          <%= link_to "#{@book.title}", book_path(@book.id) %>
         </td>
         <td>
           <%= @book.body %>

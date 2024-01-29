@@ -7,7 +7,6 @@
 body{
   list-style: none;
   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji
-
 }
 
 .table{
@@ -18,14 +17,4 @@ th, td{
   padding: 0.75em;
   vertical-align: top;
   border-top: 1px solid #dee2e6;
-}
-
-.field{
-  width: 100%;
-  margin-bottom: 1rem;
-}
-
-.input-field{
-  border: 1px solid #ced4da;
-  border-radius: 0.25rem;
 }

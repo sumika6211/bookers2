@@ -13,53 +13,53 @@
 
   <body>
     <header>
-      <nav class = "navbar navbar-expand-lg navbar-dark" >
+      <nav class = "navbar navbar-expand-lg bg-dark" >
         <div class = "container" >
-          <div class = "navbar-brand p-3"><%= link_to "Bookers", root_path %></div>
+          <div class = "navbar-brand p-3"><%= link_to "Bookers", root_path, class: "text-light" %></div>
           <ul class = "navbar-nav">
             <% if user_signed_in? %>
-              <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <li class="navbar-nav m-8 ml-auto">
-                  <%= link_to user_path(current_user.id) do %>
-                    <i class="fa-solid fa-home"></i>Home
+              <div class = "row ml-auto">
+                <li class="col-3">
+                  <%= link_to user_path(current_user.id), class: "text-light" do %>
+                    <i class="fa-solid fa-home"></i> Home
                   <% end %>
                 </li>
-                <li class = "navbar-item m-8">
-                  <%= link_to users_path do %>
-                    <i class="fa-solid fa-users"></i>Users
+                <li class = "col-3">
+                  <%= link_to users_path, class: "text-light" do %>
+                    <i class="fa-solid fa-users"></i> Users
                   <% end %>
                 </li>
-                <li class = "navbar-item m-8">
-                  <%= link_to books_path do %>
-                    <i class="fa-solid fa-book-open"></i>Books
+                <li class = "col-3">
+                  <%= link_to books_path, class: "text-light" do %>
+                    <i class="fa-solid fa-book-open"></i> Books
                   <% end %>
                 </li>
-                <li class = "navbar-item m-8">
-                  <%= link_to destroy_user_session_path, method: :delete  do%>
-                    <i class="fa-solid fa-sign-out-alt"></i>Log out
+                <li class = "col-3">
+                  <%= link_to destroy_user_session_path, method: :delete, class: "text-light"  do%>
+                    <i class="fa-solid fa-sign-out-alt"></i> Log out
                   <% end %>
                 </li>
               </div>
             <% else %>
-              <div class="row">
-                <li class="col-3 px-8 ml-auto">
-                  <%= link_to root_path do %>
-                    <i class="fa-solid fa-home"></i>Home
+              <div class="row ml-auto">
+                <li class="col-3">
+                  <%= link_to root_path, class: "text-light" do %>
+                    <i class="fa-solid fa-home"></i> Home
                   <% end %>
                 </li>
-                <li class = "col-3 px-8">
-                  <%= link_to about_path do %>
-                    <i class="fa-solid fa-link"></i>About
+                <li class = "col-3">
+                  <%= link_to about_path, class: "text-light" do %>
+                    <i class="fa-solid fa-link"></i> About
                   <% end %>
                 </li>
-                <li class = "col-3 px-8">
-                  <%= link_to new_user_registration_path do %>
-                    <i class="fa-solid fa-user-plus"></i>Sign up
+                <li class = "col-3">
+                  <%= link_to new_user_registration_path, class: "text-light" do %>
+                    <i class="fa-solid fa-user-plus"></i> Sign up
                   <% end %>
                 </li>
-                <li class = "col-3 px-8">
-                  <%= link_to new_user_session_path do %>
-                    <i class="fa-solid fa-sign-in-alt"></i>Log in
+                <li class = "col-3">
+                  <%= link_to new_user_session_path, class: "text-light" do %>
+                    <i class="fa-solid fa-sign-in-alt"></i> Log in
                   <% end %>
                 </li>
               </div>
@@ -68,6 +68,10 @@
         </div>
       </nav>
     </header>
+
+    <p class = "flash-message">
+      <%= flash[:notice] %>
+    </p>
 
     <%= yield %>
 

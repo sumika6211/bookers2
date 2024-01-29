@@ -1,21 +1,39 @@
-<h2>User info</h2>
-<%= form_with model: @user do |f| %>
-  <div class = "field" >
-    <%= f.label :Name %><br />
-    <%= f.text_field :name, autofocus: true %>
-  </div>
+<div class = "container">
+  <div class = "row">
+    <div class = "col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h2 class = "mb-3">User info</h2>
 
-  <div class = "field" >
-    <%= f.label :Image %><br />
-    <%= f.file_field :profile_image, accept: "image/*" %>
-  </div>
+      <% if @user.errors.any? %>
+        <div class = "error-box">
+          <h3><%= @user.errors.count %>errors prohibited this book from being saved:</h3>
+          <ul class = "error-message">
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-  <div class = "field" >
-    <%= f.label :Introduction %><br />
-    <%= f.text_field :introduction %>
-  </div>
+      <%= form_with model: @user do |f| %>
+        <div class = "field mb-3" >
+          <%= f.label :Name %><br />
+          <%= f.text_field :name, autofocus: true, class: "form-control" %>
+        </div>
 
-  <div class = "actions" >
-    <%= f.submit "Update User" %>
+        <div class = "field mb-3" >
+          <%= f.label :Image %><br />
+          <%= f.file_field :profile_image, accept: "image/*" %>
+        </div>
+
+        <div class = "field mb-3" >
+          <%= f.label :Introduction %><br />
+          <%= f.text_field :introduction, class: "form-control" %>
+        </div>
+
+        <div class = "actions" >
+          <%= f.submit "Update User", class: "btn btn-secondary" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</div>

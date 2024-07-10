@@ -71,6 +71,7 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.hosts << "8e32f8fdf2a649cf9acfa4c2012a5846.vfs.cloud9.ap-northeast-1.amazonaws.com"
+  config.hosts << "c1950af6f2424d2995e94638cf3450fe.vfs.cloud9.ap-northeast-1.amazonaws.com"
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
   config.active_job.queue_adapter = :inline

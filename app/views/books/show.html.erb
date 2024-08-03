@@ -34,6 +34,7 @@
                 <% end %>
               </td>
             <% end %>
+            <td>コメント数：<%= @book.book_comments.count %></td>
             <% if current_user == @book.user %>
               <td>
                 <%= link_to 'Edit', edit_book_path(@book.id), class: "btn btn-sm btn-success" %>
@@ -46,11 +47,13 @@
         </tbody>
       </table>
       <% @book.book_comments.each do |book_comment| %>
-        <%= image_tag book_comment.user.get_profile_image(80,80) %>
-        <%= book_comment.comment %>
-        <% if book_comment.user == current_user %>
-          <%= link_to 'Destroy', book_book_comment_path(book_comment.id), method: :delete, class: "btn btn-sm btn-danger", "data-confirm" => "本当に消しますか？" %>
-        <% end %>
+        <div>
+          <%= image_tag book_comment.user.get_profile_image(80,80) %>
+          <%= book_comment.comment %>
+          <% if book_comment.user == current_user %>
+            <%= link_to 'Destroy', book_book_comment_path(book_comment.id), method: :delete, class: "btn btn-sm btn-danger", "data-confirm" => "本当に消しますか？" %>
+          <% end %>
+        </div>
       <% end %>
       <div>
         <%= form_with model: [@book, @book_comment] do |f| %>

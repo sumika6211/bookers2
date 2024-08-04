@@ -3,6 +3,11 @@ Rails.application.routes.draw do
     post "users/guest_sign_in", to: "users#guest_sign_in"
   end
   devise_for :users
+  resources :users do
+    resource :relationships, only: [:create, :destroy]
+    get 'followeds', to 'relationships#followeds', as: 'followeds'
+    get 'followers', to 'relationships#followers', as: 'followers'
+  end
   root to: 'homes#top'
   get "home/about" => "homes#about", as: "about"
   resources :books, only: [:index, :show, :edit, :create, :update, :destroy] do

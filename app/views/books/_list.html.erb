@@ -14,11 +14,19 @@
     </tr>
     <tr>
       <th>follows</th>
-      <th><%= current_user.followers.count %></th>
+      <th>
+        <%= link_to user_relationships_path(current_user) do %>
+          <%= current_user.followers.count %>
+        <% end %>
+      </th>
     </tr>
     <tr>
       <th>followeds</th>
-      <th><%= current_user.followeds.count %></th>
+      <th>
+        <%= link_to user_relationships_path(current_user) do %>
+          <%= current_user.followeds.count %>
+        <% end %>
+      </th>
     </tr>
   </table>
 <% else %>
@@ -36,11 +44,19 @@
     </tr>
     <tr>
       <th>follows</th>
-      <th><%= user.followers.count %></th>
+      <th>
+        <%= link_to user_relationships_path(user) do %>
+          <%= user.followers.count %>
+        <% end %>
+      </th>
     </tr>
     <tr>
       <th>followeds</th>
-      <th><%= user.followeds.count %></th>
+      <th>
+        <%= link_to user_relationships_path(user) do %>
+          <%= user.followeds.count %>
+        <% end %>
+      </th>
     </tr>
   </table>
   <% if current_user.followeds?(user) %>

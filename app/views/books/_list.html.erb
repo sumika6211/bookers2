@@ -3,7 +3,7 @@
   <div>
     <%= image_tag current_user.get_profile_image(100,100) %>
   </div>
-  <table class = "table mt-3">
+  <table class="table mt-3">
     <tr>
       <th>name</th>
       <th><%= current_user.name %></th>
@@ -33,7 +33,7 @@
   <div>
     <%= image_tag user.get_profile_image(100,100) %>
   </div>
-  <table class = "table mt-3">
+  <table class="table mt-3">
     <tr>
       <th>name</th>
       <th><%= user.name %></th>
@@ -68,13 +68,13 @@
 
 
 <% if controller.action_name != 'show' %>
-  <div class = "user-edit-link">
+  <div class="user-edit-link">
     <%= link_to edit_user_path(current_user), class: "btn btn-outline-secondary btn-block" do %>
       <i class="fas fa-user-cog"></i>
     <% end %>
   </div>
 <% else %>
-  <div class = "user-edit-link">
+  <div class="user-edit-link">
     <%= link_to edit_user_path(user.id), class: "btn btn-outline-secondary btn-block" do %>
       <i class="fas fa-user-cog"></i>
     <% end %>
@@ -82,19 +82,19 @@
 <% end %>
 
 
-<h2 class = "mt-3 mb-3">New book</h2>
+<h2 class="mt-3 mb-3">New book</h2>
 <%= form_with model: book, url: books_path, method: :post do |f| %>
-  <div class = "field mb-3">
+  <div class="field mb-3">
     <%= f.label :title, :"Title" %><br />
     <%= f.text_field :title, class: "form-control" %>
   </div>
 
-  <div class = "field mb-3">
+  <div class="field mb-3">
     <%= f.label :body, :"Opinion" %><br />
     <%= f.text_field :body, class: "form-control" %>
   </div>
 
-  <div class = "actions">
+  <div class="actions">
     <%= f.submit ' Create Book ', class: "btn btn-success" %>
   </div>
 <% end %>

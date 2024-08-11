@@ -1,12 +1,12 @@
-<div class = "container">
-  <div class = "row">
-    <div class = "col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-      <h1 class = "mb-3">Editing Book</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h1 class="mb-3">Editing Book</h1>
 
       <% if @book.errors.any? %>
-        <div class = "error-box">
+        <div class="error-box">
           <h3><%= @book.errors.count %>errors prohibited this book from being saved:</h3>
-          <ul class = "error-message">
+          <ul class="error-message">
             <% @book.errors.full_messages.each do |message| %>
               <li><%= message %></li>
             <% end %>
@@ -15,17 +15,17 @@
       <% end %>
 
       <%= form_with model: @book, url: book_path, method: :patch do |f| %>
-        <div class = "field mb-3">
+        <div class="field mb-3">
           <%= f.label :Title %><br />
           <%= f.text_field :title, class: "form-control" %>
         </div>
 
-        <div class = "field mb-3">
+        <div class="field mb-3">
           <%= f.label :Opinion %><br />
           <%= f.text_field :body, class: "form-control" %>
         </div>
 
-        <div class = "actions mb-3">
+        <div class="actions mb-3">
           <%= f.submit ' Update Book ', class: "btn btn-success" %>
         </div>
       <% end %>

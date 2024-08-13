@@ -1,0 +1,7 @@
+$('#book-comment-details').append(`
+  <%=j render 'book_comments/book_comment', book: @book, book_comment: @book_comment %>
+`);
+
+$('#book-comment-form').val('');
+
+$('.book-comment-count').text('コメント数：<%= @book.book_comments.size %>');

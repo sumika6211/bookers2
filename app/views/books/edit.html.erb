@@ -25,6 +25,8 @@
           <%= f.text_field :body, class: "form-control" %>
         </div>
 
+        <div class="mb-3"><%= render 'static_rate', book: @book %></div>
+
         <div class="actions mb-3">
           <%= f.submit ' Update Book ', class: "btn btn-success" %>
         </div>

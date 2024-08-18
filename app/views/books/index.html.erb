@@ -26,6 +26,7 @@
             <th>Opinion</th>
             <th></th>
             <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -46,6 +47,7 @@
                 <%= render 'favorites/favorite_button', book: book %>
               </td>
               <td>コメント数：<%= book.book_comments.count %></td>
+              <td><%= render 'static_rate', book: book %></td>
             </tr>
           <% end %>
         </tbody>

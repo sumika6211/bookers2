@@ -20,8 +20,8 @@
       <h2>Books</h2>
       <div class="container">
         <div class="row">
-          <div><%= link_to "新しい順", books_path %> |</div>
-          <div class="ml-1"><%= link_to " 評価の高い順", books_path(favorites: "favorite") %></div>
+          <div><%= link_to "新しい順", books_path, "data-turbolinks": false %> |</div>
+          <div class="ml-1"><%= link_to "評価の高い順", books_path(rates: "rates"), "data-turbolinks": false %></div>
         </div>
       </div>
       <table class="table">

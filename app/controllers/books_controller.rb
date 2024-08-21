@@ -2,10 +2,11 @@ class BooksController < ApplicationController
   def index
     @book = Book.new
     @books = Book.all
-    #@new_posts = @books.order(created_at: :desc)
-    @books = @books.order(created_at: :desc)
-    #@popular_books = @books.favorite_order
-    @books = @books.favorited_order if params[:favorites].present?
+    if params[:rates].present?
+      @books = @books.order(star: :desc)
+    else
+      @books = @books.order(created_at: :desc)
+    end
   end
 
   def create
